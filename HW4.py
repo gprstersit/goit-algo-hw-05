@@ -1,6 +1,5 @@
 # додаємо декоратор для виведення помилок
 def input_error(func):
-    ve = None
     def inner(*args, **kwargs):
         try:
             return func(*args, **kwargs)
