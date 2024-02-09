@@ -2,18 +2,15 @@ import re
 from typing import Callable
 
 def generator_numbers(text: str):
-    # Регулярний вираз для визначення дійсних чисел
+    # визначення дійсних чисел
     pattern = re.compile(r'\b\d+(\.\d+)?\b')
-    
-    # Знаходимо всі входження регулярного виразу у тексті
     matches = pattern.finditer(text)
-    
-    # Ітеруємо по знайдених числах та повертаємо їх як генератор
+    # проходио по знайдених числах та повертаємо генератор
     for match in matches:
         yield float(match.group())
 
 def sum_profit(text: str, func: Callable):
-    # Викликаємо функцію-генератор та підсумовуємо числа
+    # підсумовуємо числа
     total_sum = sum(func(text))
     return total_sum
 
